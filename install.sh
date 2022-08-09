@@ -28,10 +28,11 @@ echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
 echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 # https://www.mediawiki.org/wiki/Manual:$wgDevelopmentWarnings
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
+echo '$wgEnableWikibaseRepo = false;' >> LocalSettings.php
 
 # Loads extension or skin depending on type option provided
 if [ "$TYPE" = "extension" ]; then
-    echo "wfLoadExtension( '$EXTENSION_NAME' );" >> LocalSettings.php
+    
 	ls ".." -l
 	ls "../extensions" -l
 	ls "../extensions/$EXTENSION_NAME" -l
@@ -42,6 +43,7 @@ if [ "$TYPE" = "extension" ]; then
 		echo "Installed extension: $EXTENSION_NAME at:"
 		ls "./extensions"
 	fi
+	echo "wfLoadExtension( '$EXTENSION_NAME', './extensions/$EXTENSION_NAME/extension.json' );" >> LocalSettings.php
 else
     echo "wfLoadSkin( '$EXTENSION_NAME' );" >> LocalSettings.php
 fi
