@@ -31,6 +31,9 @@ echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 
 # Loads extension or skin depending on type option provided
 if [ "$TYPE" = "extension" ]; then
+	ls ".." -l
+	ls "../extensions" -l
+	ls "../extensions/$EXTENSION_NAME" -l
 	echo "Checking if extension exists"
 	if [ -d "../extensions/$EXTENSION_NAME" ]; then
 		echo "Installing extension: $EXTENSION_NAME"
