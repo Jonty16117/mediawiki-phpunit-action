@@ -33,11 +33,11 @@ echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 if [ "$TYPE" = "extension" ]; then
     echo "Checking if extension exists"
     if [ -d "../extensions/$EXTENSION_NAME" ]; then
-        echo "Installing extension: $EXTENSION_NAME"
-        cp -rf "../extensions/$EXTENSION_NAME" "./extensions"
+    	echo "Installing extension: $EXTENSION_NAME"
+    	cp -rf "../extensions/$EXTENSION_NAME" "./extensions"
 		echo "Installed extension: $EXTENSION_NAME at:"
 		ls "./extensions"
-    fi
+	fi
     echo "wfLoadExtension( '$EXTENSION_NAME' );" >> LocalSettings.php
 else
     echo "wfLoadSkin( '$EXTENSION_NAME' );" >> LocalSettings.php
@@ -50,7 +50,7 @@ cat <<EOT >> composer.local.json
 	"extra": {
 		"merge-plugin": {
 			"merge-dev": true,
-			"include": [
+	        "include": [
 				"extensions/*/composer.json",
 				"skins/*/composer.json"
 			]
