@@ -31,9 +31,8 @@ echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 
 # Loads extension or skin depending on type option provided
 if [ "$TYPE" = "extension" ]; then
-    pwd
-    ls .. -l
-    ls ../.. -l
+    if [ -d "../extensions/$EXTENSION_NAME" ]; then
+        cp -rf "../extensions/$EXTENSION_NAME" "./extensions"
     echo "wfLoadExtension( '$EXTENSION_NAME' );" >> LocalSettings.php
 else
     echo "wfLoadSkin( '$EXTENSION_NAME' );" >> LocalSettings.php
