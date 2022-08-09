@@ -32,10 +32,6 @@ echo '$wgEnableWikibaseRepo = false;' >> LocalSettings.php
 
 # Loads extension or skin depending on type option provided
 if [ "$TYPE" = "extension" ]; then
-    
-	ls ".." -l
-	ls "../extensions" -l
-	ls "../extensions/$EXTENSION_NAME" -l
 	echo "Checking if extension exists"
 	if [ -d "../extensions/$EXTENSION_NAME" ]; then
 		echo "Installing extension: $EXTENSION_NAME"
@@ -43,6 +39,10 @@ if [ "$TYPE" = "extension" ]; then
 		echo "Installed extension: $EXTENSION_NAME at:"
 		ls "./extensions"
 	fi
+	ls -l
+	ls ./extensions -l
+	ls ./extensions/Checklists -l
+	cat ./extensions/$EXTENSION_NAME/extension.json
 	echo "wfLoadExtension( '$EXTENSION_NAME', './extensions/$EXTENSION_NAME/extension.json' );" >> LocalSettings.php
 else
     echo "wfLoadSkin( '$EXTENSION_NAME' );" >> LocalSettings.php
