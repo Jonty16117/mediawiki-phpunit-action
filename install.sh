@@ -33,6 +33,7 @@ echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 if [ "$TYPE" = "extension" ]; then
     if [ -d "../extensions/$EXTENSION_NAME" ]; then
         cp -rf "../extensions/$EXTENSION_NAME" "./extensions"
+    fi
     echo "wfLoadExtension( '$EXTENSION_NAME' );" >> LocalSettings.php
 else
     echo "wfLoadSkin( '$EXTENSION_NAME' );" >> LocalSettings.php
