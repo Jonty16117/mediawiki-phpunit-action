@@ -43,7 +43,6 @@ if [ "$TYPE" = "extension" ]; then
 	ls ./extensions -l
 	ls ./extensions/Checklists -l
 	cat ./extensions/$EXTENSION_NAME/extension.json
-	find . | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
 	echo "wfLoadExtension( '$EXTENSION_NAME' );" >> LocalSettings.php
 # 	echo "wfLoadExtension( '$EXTENSION_NAME', __DIR__.'/extensions/$EXTENSION_NAME/extension.json' );" >> LocalSettings.php
 else
