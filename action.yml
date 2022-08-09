@@ -41,9 +41,10 @@ runs:
       run: bash $GITHUB_ACTION_PATH/install.sh ${{ inputs.mwbranch }} ${{ inputs.extension }} ${{ inputs.type }}
       shell: bash
 
-    - uses: actions/checkout@v2
-      with:
-        path: mediawiki/${{ inputs.type }}s/${{ inputs.extension }}
+# Commenting this for experimentational purposes as the extension to be tested is placed in the local folder. However this following code makes use of a remote git repository of a wikimedia extension to test it
+#     - uses: actions/checkout@v2
+#       with:
+#         path: mediawiki/${{ inputs.type }}s/${{ inputs.extension }}
 
     - name: Composer updates
       working-directory: mediawiki
