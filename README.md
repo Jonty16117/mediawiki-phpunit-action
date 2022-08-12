@@ -57,7 +57,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       # run the action to install MediaWiki, PHP, Composer
-      # and run PHPUnit tests for the extension
+      # and run PHPUnit tests
       - name: Mediawiki PHPUnit
         uses: Jonty16117/mediawiki-phpunit-action@v2
         with:
