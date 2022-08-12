@@ -52,5 +52,5 @@ runs:
 
     - name: Run PHPUnit
       working-directory: mediawiki
-      run: ls -la && ls -la vendor && ls -la vendor/mwstake && cat vendor/mwstake/${{ inputs.mwstakecomponent }}/phpunit.xml && tests/phpunit/phpunit.php -c vendor/mwstake/${{ inputs.mwstakecomponent }}/phpunit.xml
+      run: ls -la && ls -la vendor && ls -la vendor/mwstake && cat vendor/mwstake/${{ inputs.mwstakecomponent }}/.phpunit.xml && tests/phpunit/phpunit.php -c vendor/mwstake/${{ inputs.mwstakecomponent }}/.phpunit.xml
       shell: bash
