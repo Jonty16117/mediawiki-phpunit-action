@@ -35,6 +35,8 @@ echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 # https://www.mediawiki.org/wiki/Manual:$wgDevelopmentWarnings
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 
+echo "comp name: $MWSTAKE_COMPONENT"
+
 mkdir -p vendor/mwstake/$MWSTAKE_COMPONENT
 # cd ./vendor/mwstake/$MWSTAKE_COMPONENT
 
