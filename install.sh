@@ -13,6 +13,9 @@ wget https://github.com/wikimedia/mediawiki/archive/$MW_BRANCH.tar.gz -nv -q
 tar -zxf $MW_BRANCH.tar.gz
 mv mediawiki-$MW_BRANCH mediawiki
 
+# Setting composer config to allow installing plugins
+composer config --global allow-plugins.composer/installers true
+
 # Install composer dependencies
 cd mediawiki && composer -q install
 php maintenance/install.php \
@@ -28,19 +31,6 @@ echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
 echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 # https://www.mediawiki.org/wiki/Manual:$wgDevelopmentWarnings
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
-
-# Loads extension or skin depending on type option provided
-if [ "$TYPE" = "extension" ]; then
-	echo "Checking if extension exists"
-	if [ -d "../extensions/$EXTENSION_NAME" ]; then
-		echo "Installing extension: $EXTENSION_NAME..."
-		cp -rf "../extensions/$EXTENSION_NAME" "./extensions"
-		echo "Installed extension: $EXTENSION_NAME"
-	fi
-	echo "wfLoadExtension( '$EXTENSION_NAME' );" >> LocalSettings.php
-else
-    echo "wfLoadSkin( '$EXTENSION_NAME' );" >> LocalSettings.php
-fi
 
 # Include everything from `extensions` and `skins` directories
 cat <<EOT >> composer.local.json

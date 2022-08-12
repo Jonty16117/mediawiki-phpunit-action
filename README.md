@@ -11,21 +11,16 @@ PHPUnit tests for your extension or skin repo:
 # Usage
 
 ```yaml
-- uses: wikiteq/mediawiki-phpunit-action@v2
+- uses: Jonty16117/mediawiki-phpunit-action@v2
   with:
     php: 7.4
     mwbranch: REL1_35
-    extension: DummyExtension
-    testgroup: extension-DummyExtension
 ```
 
 # Inputs
 
 * `php` - version of PHP to install
 * `mwbranch` - MediaWiki branch to install
-* `extension` - extension name to test (this should match the desired extension directory)
-* `testgroup` - @group of tests to run (this should match your extension group defined on unit tests)
-* `type` - (optional) either can be `extension` or `skin`, default value is `extension`
 
 # Example
 
@@ -64,23 +59,8 @@ jobs:
       # run the action to install MediaWiki, PHP, Composer
       # and run PHPUnit tests for the extension
       - name: Mediawiki PHPUnit
-        uses: wikiteq/mediawiki-phpunit-action@v2
+        uses: Jonty16117/mediawiki-phpunit-action@v2
         with:
           php: ${{ matrix.php }}
           mwbranch: ${{ matrix.mw }}
-          extension: MyExtension
-          testgroup: extension-MyExtension
-```
-
-Example of adding a group to your extension tests:
-
-`MyExtension/tests/phpunit/MyExtensionTest.php`
-
-```php
-/**
- * @group extension-MyExtension
- */
-class MyExtensionTest extends MediaWikiTestCase {
-    // ...
-}
 ```
