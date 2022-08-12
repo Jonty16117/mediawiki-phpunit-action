@@ -36,7 +36,7 @@ echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 
 mkdir -p vendor/mwstake
-cd /vendor/mwstake/$MWSTAKE_COMPONENT
+cd ./vendor/mwstake/$MWSTAKE_COMPONENT
 
 # Run the unit test
 ../../../tests/phpunit/phpunit.php -c .phpunit.xml
