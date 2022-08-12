@@ -1,15 +1,15 @@
-name: 'Mediawiki Extension PHPUnit Runner'
-description: 'Setups MediaWiki and runs PHPUnit test for an extension'
-author: 'Jonty16117'
+name: "Mediawiki Extension PHPUnit Runner"
+description: "Setups MediaWiki and runs PHPUnit test for an extension"
+author: "Jonty16117"
 branding:
   color: yellow
   icon: book-open
 inputs:
   php:
-    description: 'PHP version'
+    description: "PHP version"
     required: true
   mwbranch:
-    description: 'Mediawiki branch to test against'
+    description: "Mediawiki branch to test against"
     required: true
   # extension:
   #   description: 'Extension name to test'
@@ -22,7 +22,7 @@ inputs:
   #   required: false
   #   default: 'extension'
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Install PHP
       uses: shivammathur/setup-php@v2
@@ -52,5 +52,5 @@ runs:
 
     - name: Run PHPUnit
       working-directory: mediawiki
-      run: tests/phpunit/phpunit.php -c vendor/mwstake/${{ inputs.mwstakecomponent }}/phpunit.xml 
+      run: ls -la && ls -la vendor && ls -la vendor/mwstake && cat tests/phpunit/phpunit.php && tests/phpunit/phpunit.php -c vendor/mwstake/${{ inputs.mwstakecomponent }}/phpunit.xml
       shell: bash
