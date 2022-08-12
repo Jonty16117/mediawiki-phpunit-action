@@ -31,19 +31,3 @@ echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
 echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 # https://www.mediawiki.org/wiki/Manual:$wgDevelopmentWarnings
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
-
-# Include everything from `extensions` and `skins` directories
-cat <<EOT >> composer.local.json
-{
-  "require": {},
-	"extra": {
-		"merge-plugin": {
-			"merge-dev": true,
-	        "include": [
-				"extensions/*/composer.json",
-				"skins/*/composer.json"
-			]
-		}
-	}
-}
-EOT
