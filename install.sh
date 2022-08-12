@@ -3,6 +3,7 @@
 set -o pipefail
 
 MW_BRANCH=$1
+MWSTAKE_COMPONENT=$2
 
 # Install wget
 apt-get update && apt-get install wget
@@ -33,3 +34,8 @@ echo '$wgShowExceptionDetails = true;' >> LocalSettings.php
 echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 # https://www.mediawiki.org/wiki/Manual:$wgDevelopmentWarnings
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
+
+cd /vendor/mwstake/$MWSTAKE_COMPONENT
+
+# Run the unit test
+../../../tests/phpunit/phpunit.php -c .phpunit.xml

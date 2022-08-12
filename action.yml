@@ -38,7 +38,7 @@ runs:
         key: composer-php${{ inputs.php }}
 
     - name: Install MediaWiki
-      run: bash $GITHUB_ACTION_PATH/install.sh ${{ inputs.mwbranch }}
+      run: bash $GITHUB_ACTION_PATH/install.sh ${{ inputs.mwbranch }} ${{ inputs.mwstakecomponent }}
       shell: bash
 
     - uses: actions/checkout@v3
