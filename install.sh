@@ -13,9 +13,6 @@ wget https://github.com/wikimedia/mediawiki/archive/$MW_BRANCH.tar.gz -nv -q
 tar -zxf $MW_BRANCH.tar.gz
 mv mediawiki-$MW_BRANCH mediawiki
 
-# Setting composer config to allow installing plugins
-composer config --global allow-plugins.composer/installers true
-
 # Install composer dependencies
 cd mediawiki && composer -q install
 php maintenance/install.php \

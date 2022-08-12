@@ -51,6 +51,6 @@ runs:
       shell: bash
 
     - name: Run PHPUnit
-      working-directory: mediawiki
+      working-directory: mediawiki/mwstake/${{ inputs.mwstakecomponent }}
       run: php tests/phpunit/phpunit.php
       shell: bash
