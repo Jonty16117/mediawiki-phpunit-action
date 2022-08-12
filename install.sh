@@ -3,8 +3,6 @@
 set -o pipefail
 
 MW_BRANCH=$1
-EXTENSION_NAME=$2
-TYPE=$3
 
 # Download wiki release
 wget https://github.com/wikimedia/mediawiki/archive/$MW_BRANCH.tar.gz -nv -q
@@ -12,6 +10,10 @@ wget https://github.com/wikimedia/mediawiki/archive/$MW_BRANCH.tar.gz -nv -q
 # Extract into `mediawiki` directory
 tar -zxf $MW_BRANCH.tar.gz
 mv mediawiki-$MW_BRANCH mediawiki
+
+pwd
+ls -la
+echo "branch name: $MW_BRANCH"
 
 # Install composer dependencies
 cd mediawiki && composer -q install
