@@ -38,12 +38,12 @@ runs:
         key: composer-php${{ inputs.php }}
 
     - name: Install MediaWiki
-      run: bash $GITHUB_ACTION_PATH/install.sh ${{ inputs.mwbranch }} ${{ inputs.mwstakecomponent }}
+      run: bash $GITHUB_ACTION_PATH/install.sh ${{ inputs.mwbranch }}
       shell: bash
 
     - uses: actions/checkout@v3
       with:
-        path: mediawiki/mwstake
+        path: mediawiki/vendor/mwstake
 
     - name: Composer updates
       working-directory: mediawiki
@@ -51,6 +51,6 @@ runs:
       shell: bash
 
     - name: Run PHPUnit
-      working-directory: mediawiki/mwstake/${{ inputs.mwstakecomponent }}
-      run: php tests/phpunit/phpunit.php
+      working-directory: mediawiki
+      run: tests/phpunit/phpunit.php -c vendor/mwstake/${{ inputs.mwstakecomponent }}/phpunit.xml 
       shell: bash
