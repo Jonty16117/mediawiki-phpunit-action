@@ -35,7 +35,7 @@ echo '$wgShowDBErrorBacktrace = true;' >> LocalSettings.php
 # https://www.mediawiki.org/wiki/Manual:$wgDevelopmentWarnings
 echo '$wgDevelopmentWarnings = true;' >> LocalSettings.php
 
-mkdir /vendor/mwstake
+mkdir -p vendor/mwstake
 cd /vendor/mwstake/$MWSTAKE_COMPONENT
 
 # Run the unit test
