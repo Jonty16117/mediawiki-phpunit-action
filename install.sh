@@ -5,7 +5,7 @@ set -o pipefail
 MW_BRANCH=$1
 
 # Install wget
-apt-get install wget
+apt-get update && apt-get install wget
 
 # Download wiki release
 wget https://github.com/wikimedia/mediawiki/archive/$MW_BRANCH.tar.gz -nv -q
